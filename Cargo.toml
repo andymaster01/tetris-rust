@@ -1,0 +1,7 @@
+[package]
+name = "tetris-rust"
+version = "0.1.0"
+authors = ["mauro"]
+
+[dependencies]
+sfml = { git = "https://github.com/jeremyletang/rust-sfml.git" }
