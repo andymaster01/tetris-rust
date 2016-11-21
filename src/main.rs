@@ -1,7 +1,7 @@
 extern crate sfml;
 
 use sfml::window::{VideoMode, Event, window_style, ContextSettings, Key};
-use sfml::graphics::{RenderWindow, Color, RenderTarget};
+use sfml::graphics::{RenderWindow, Color, RenderTarget, Texture, Sprite};
 
 fn main() {
 
@@ -11,7 +11,12 @@ fn main() {
 						&ContextSettings::default()
 			).unwrap();
 
+    
+
     loop {
+
+        let tiles = Texture::from_file("tiles.png").unwrap();
+        let mut image = Sprite::with_texture(&tiles);
 
 	    for event in window.events(){
 		    match event {
@@ -26,6 +31,7 @@ fn main() {
         }
 
         window.clear(&Color::white());
+        window.draw(&image);
  	    window.display();
     }
 
