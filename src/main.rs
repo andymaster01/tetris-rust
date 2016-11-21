@@ -1,7 +1,7 @@
 extern crate sfml;
 
 use sfml::window::{VideoMode, Event, window_style, ContextSettings, Key};
-use sfml::graphics::{RenderWindow};
+use sfml::graphics::{RenderWindow, Color, RenderTarget};
 
 fn main() {
 
@@ -13,19 +13,20 @@ fn main() {
 
     loop {
 
-	for event in window.events(){
-		match event {
-			Event::KeyPressed { code, .. } => {
-				match code {
-					Key::Escape => return,
-					_ => {}
-				}
-			},
-		  _ => {}
-		}
-	}
+	    for event in window.events(){
+		    match event {
+    			Event::KeyPressed { code, .. } => {
+	    			match code {
+		    			Key::Escape => return,
+			    		_ => {}
+			    	}
+			    },
+		        _ => {}
+		    }
+        }
 
- 	window.display();
+        window.clear(&Color::white());
+ 	    window.display();
     }
 
     
